@@ -12,3 +12,5 @@ files.forEach(file => {
   // This command sends the data to Cloudflare's servers
   execSync(`npx wrangler d1 execute flags-db --remote --command "${sql}"`);
 });
+
+
