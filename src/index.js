@@ -1,7 +1,7 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const country = (request.cf?.country || "US").toUpperCase();
+    const country = (request.cf?.country || "US").toLowerCase();
     const email = request.headers.get("cf-access-authenticated-user-email") || "user@example.com";
     const timestamp = new Date().toLocaleString();
 
@@ -32,7 +32,7 @@ export default {
 
     // Part 3: D1 Flag Endpoint
     if (url.pathname.startsWith("/flags-d1/")) {
-      const code = url.pathname.split("/")[2].toLowerCase();
+      const code = url.pathname.split("/")[2].toUpperCase();
       const row = await env.DB.prepare("SELECT image FROM flags WHERE country = ?")
         .bind(code).first();
       if (!row) return new Response("Flag not found in D1", { status: 404 });
