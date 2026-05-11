@@ -9,4 +9,4 @@ bucket_name = "flag-images"
 [[d1_databases]]
 binding = "DB"
 database_name = "flags-db"
-database_id = "DB"
+database_id = "b81aaef6-917b-497c-8ae1-94cf96f4851e"
